@@ -30,6 +30,21 @@ namespace CloudCoinCsharpSDK
         [JsonProperty("time")]
         public string time { get; set; }
 
+        [JsonProperty("account")]
+        public string account { get; set; }
+
+        [JsonProperty("exchange_server")]
+        public string exchange_server { get; set; }
+
+        [JsonProperty("currencies")]
+        public string[] currencies { get; set; }
+
+        [JsonProperty("prices")]
+        public string[] prices { get; set; }
+
+        [JsonProperty("methods")]
+        public string[] methods { get; set; }
+
         //Constructors
         public BankTotal()
         {

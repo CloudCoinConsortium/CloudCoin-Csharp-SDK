@@ -21,8 +21,8 @@ namespace CloudCoinCsharpSDK
         [JsonProperty("privatekey")]
         public string privatekey { get; set; }
 
-        [JsonProperty("email")]
-        public string email { get; set; }
+        [JsonProperty("account")]
+        public string account { get; set; }
 
 
         //Constructors
@@ -31,11 +31,11 @@ namespace CloudCoinCsharpSDK
 
         }//end of constructor
 
-        public BankKeys(string publickey, string privatekey, string email)
+        public BankKeys(string publickey, string privatekey, string account)
         {
             this.publickey = publickey;
             this.privatekey = privatekey;
-            this.email = email;
+            this.account = account;
         }//end of constructor
 
 

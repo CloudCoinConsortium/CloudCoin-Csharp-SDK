@@ -17,6 +17,12 @@ namespace CloudCoinCsharpSDK
         [JsonProperty("message")]
         public string message { get; set; }
 
+        [JsonProperty("account")]
+        public string account { get; set; }
+
+        [JsonProperty("receipt")]
+        public string receipt { get; set; }
+
         public FailResponse()
         {
 

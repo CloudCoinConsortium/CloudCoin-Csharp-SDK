@@ -34,7 +34,7 @@ namespace CloudCoinCsharpSDK
 
         string privatekey { get; set; }
 
-        string email { get; set; }
+        string account { get; set; }
     }
 
     interface IBankResponse
