@@ -47,11 +47,11 @@ namespace CloudCoinCsharpSDK
         public async Task showCoins()
         {
             //the private key is sent as form url encoded content
-            //var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
+            var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
             string json = "error";
             try
             {
-                var showCoins = await cli.GetAsync("https://" + keys.publickey + "/show_coins.aspx?account="+keys.account);
+                var showCoins = await cli.PostAsync("https://" + keys.publickey + "/show_coins.aspx", formContent);
                 json = await showCoins.Content.ReadAsStringAsync();
                 var bankTotals = JsonConvert.DeserializeObject<BankTotal>(json);
                 if (bankTotals.status == "coins_shown")
