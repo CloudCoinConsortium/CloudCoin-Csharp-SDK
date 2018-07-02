@@ -168,7 +168,7 @@ namespace CloudCoinCsharpSDK
         {
             try
             {
-                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?pk=" + keys.privatekey + "&rn=" + receiptNumber + "&account=" + keys.account);
+                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?rn=" + receiptNumber + "&account=" + keys.account);
                 rawReceipt = await result_receipt.Content.ReadAsStringAsync();
             }
             catch (HttpRequestException ex)
@@ -258,7 +258,7 @@ namespace CloudCoinCsharpSDK
                // new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
             try
             {
-                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?pk="+keys.privatekey+"&rn="+receiptNumber +"&account="+keys.account);
+                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?rn="+receiptNumber +"&account="+keys.account);
                 string rawReceipt = await result_receipt.Content.ReadAsStringAsync();
                 var deserialReceipt = JsonConvert.DeserializeObject<Receipt>(rawReceipt);
                 for (int i = 0; i < deserialReceipt.rd.Length; i++)
