@@ -47,11 +47,11 @@ namespace CloudCoinCsharpSDK
         public async Task showCoins()
         {
             //the private key is sent as form url encoded content
-            var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
+            //var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
             string json = "error";
             try
             {
-                var showCoins = await cli.PostAsync("https://" + keys.publickey + "/show_coins.aspx", formContent);
+                var showCoins = await cli.GetAsync("https://" + keys.publickey + "/show_coins.aspx?pk=" + keys.privatekey + "&account="+ keys.account);
                 json = await showCoins.Content.ReadAsStringAsync();
                 var bankTotals = JsonConvert.DeserializeObject<BankTotal>(json);
                 if (bankTotals.status == "coins_shown")
@@ -168,7 +168,7 @@ namespace CloudCoinCsharpSDK
         {
             try
             {
-                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?rn="+ receiptNumber +"&account="+keys.account);
+                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?pk=" + keys.privatekey + "&rn=" + receiptNumber + "&account=" + keys.account);
                 rawReceipt = await result_receipt.Content.ReadAsStringAsync();
             }
             catch (HttpRequestException ex)
@@ -187,11 +187,11 @@ namespace CloudCoinCsharpSDK
         public async Task getStackFromCloudBank( int amountToWithdraw)
         {
             totalCoinsWithdrawn = amountToWithdraw;
-            var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("amount",amountToWithdraw.ToString()),
-                new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
+            //var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("amount",amountToWithdraw.ToString()),
+             //   new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
             try
             {
-                var result_stack = await cli.PostAsync("https://" + keys.publickey + "/withdraw_one_stack.aspx", formContent);
+                var result_stack = await cli.GetAsync("https://" + keys.publickey + "/withdraw_one_stack.aspx?pk="+keys.privatekey + "&amount="+ amountToWithdraw + "&account" + keys.account);
                 rawStackFromWithdrawal = await result_stack.Content.ReadAsStringAsync();
                 var failResponse = JsonConvert.DeserializeObject<FailResponse>(rawStackFromWithdrawal);
                 Console.Out.WriteLine(failResponse.status);
@@ -254,11 +254,11 @@ namespace CloudCoinCsharpSDK
         //The resulting stack that is retrieved is saved in rawStackFromWithdrawal
         public async Task getReceiptFromCloudBank()
         {
-            var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("rn",receiptNumber),
-                new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
+            //var formContent = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("rn",receiptNumber),
+               // new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
             try
             {
-                var result_receipt = await cli.PostAsync("https://" + keys.publickey + "/get_receipt.aspx", formContent);
+                var result_receipt = await cli.GetAsync("https://" + keys.publickey + "/get_receipt.aspx?pk="+keys.privatekey+"&rn="+receiptNumber +"&account="+keys.account);
                 string rawReceipt = await result_receipt.Content.ReadAsStringAsync();
                 var deserialReceipt = JsonConvert.DeserializeObject<Receipt>(rawReceipt);
                 for (int i = 0; i < deserialReceipt.rd.Length; i++)
@@ -287,9 +287,9 @@ namespace CloudCoinCsharpSDK
 
             try
             {
-                var formContent2 = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("amount",totalCoinsWithdrawn.ToString()),
-                new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
-                var result_stack = await cli.PostAsync("https://" + keys.publickey + "/withdraw_account.aspx", formContent2);
+                //var formContent2 = new FormUrlEncodedContent(new[] { new KeyValuePair<string,string>("amount",totalCoinsWithdrawn.ToString()),
+                //new KeyValuePair<string, string>("pk", keys.privatekey), new KeyValuePair<string, string>("account", keys.account) });
+                var result_stack = await cli.GetAsync("https://" + keys.publickey + "/withdraw_one_stack.aspx?pk=" + keys.privatekey + "&amount=" + totalCoinsWithdrawn.ToString() + "&account=" + keys.account);
                 rawStackFromWithdrawal = await result_stack.Content.ReadAsStringAsync();
                 var failResponse = JsonConvert.DeserializeObject<FailResponse>(rawStackFromWithdrawal);
                 Console.Out.WriteLine(failResponse.status);
