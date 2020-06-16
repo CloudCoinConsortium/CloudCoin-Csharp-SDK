@@ -90,9 +90,9 @@
   <ItemGroup>
     <Compile Include="BankKeys.cs" />
     <Compile Include="BankTotal.cs" />
+    <Compile Include="BaseResponse.cs" />
     <Compile Include="CloudBankUtils.cs" />
-    <Compile Include="DepositResponse.cs" />
-    <Compile Include="FailResponse.cs" />
+    <Compile Include="EchoResponse.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="Interpretation.cs" />
     <Compile Include="Receipt.cs" />

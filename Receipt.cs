@@ -1,19 +1,15 @@
 using Newtonsoft.Json;
-namespace CloudCoinCsharpSDK
+namespace CloudBankTester
 {
-    public class Receipt : IBankResponse
+    public class Receipt : BaseResponse
     {
         [JsonProperty("receipt_id")]
         public string receipt_id { get; set; }
 
-        [JsonProperty("time")]
-        public string time { get; set; }
 
         [JsonProperty("timezone")]
         public string timezone { get; set; }
 
-        [JsonProperty("bank_server")]
-        public string bank_server { get; set; }
 
         [JsonProperty("total_authentic")]
         public int total_authentic { get; set; }
@@ -27,8 +23,8 @@ namespace CloudCoinCsharpSDK
         [JsonProperty("total_lost")]
         public int total_lost { get; set; }
 
-        [JsonProperty("receipt_detail")]
-        public ReceiptDetail[] rd { get; set; }
+        [JsonProperty("receipt")]
+        public ReceiptDetail[] receipt_detail { get; set; }
 
     }
 }

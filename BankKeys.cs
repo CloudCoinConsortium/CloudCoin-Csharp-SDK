@@ -1,22 +1,14 @@
 using Newtonsoft.Json;
 
-namespace CloudCoinCsharpSDK
+namespace CloudBankTester
 {
-    /*
-     example json file: 
    
-        {
-           "publickey":"preston.CloudCoin.Global",
-           "privatekey":"6e2b96d6204a4212ae57ab84260e747f",
-           "email":""
-         }
-         */
 
-    public class BankKeys : IKeys
+    public class BankKeys 
     {
         //Fields
-        [JsonProperty("publickey")]
-        public string publickey { get; set; }
+        [JsonProperty("url")]
+        public string url { get; set; }
 
         [JsonProperty("privatekey")]
         public string privatekey { get; set; }
@@ -31,9 +23,9 @@ namespace CloudCoinCsharpSDK
 
         }//end of constructor
 
-        public BankKeys(string publickey, string privatekey, string account)
+        public BankKeys(string url, string privatekey, string account)
         {
-            this.publickey = publickey;
+            this.url = url;
             this.privatekey = privatekey;
             this.account = account;
         }//end of constructor

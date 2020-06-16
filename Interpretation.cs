@@ -1,6 +1,6 @@
 ﻿
 
-namespace CloudCoinCsharpSDK
+namespace CloudBankTester
 {
     public class Interpretation
     {
@@ -8,5 +8,6 @@ namespace CloudCoinCsharpSDK
         public string interpretation;
         public int totalAuthenticNotes;
         public int totalAuthenticCoins;
+
     }
 }

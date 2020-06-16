@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 
-namespace CloudCoinCsharpSDK
+namespace CloudBankTester
 {
     interface ICloudBankAccessable
     {
@@ -41,6 +41,8 @@ namespace CloudCoinCsharpSDK
     {
         string bank_server { get; set; }
         string time { get; set; }
+        string status { get; set; }
+        string message { get; set; }
     }
 
 

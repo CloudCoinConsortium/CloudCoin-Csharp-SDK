@@ -1,8 +1,8 @@
 using Newtonsoft.Json;
 
-namespace CloudCoinCsharpSDK
+namespace CloudBankTester
 {
-    class BankTotal : IBankResponse
+    class BankTotal : BaseResponse
     {
 
         //Fields
@@ -20,18 +20,6 @@ namespace CloudCoinCsharpSDK
 
         [JsonProperty("twohundredfifties")]
         public int twohundredfifties { get; set; }
-
-        [JsonProperty("bank_server")]
-        public string bank_server { get; set; }
-
-        [JsonProperty("status")]
-        public string status { get; set; }
-
-        [JsonProperty("time")]
-        public string time { get; set; }
-
-        [JsonProperty("account")]
-        public string account { get; set; }
 
 
         //Constructors
