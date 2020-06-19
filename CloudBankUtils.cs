@@ -598,12 +598,11 @@ namespace CloudBankTester
             return inter;
         }
 
-        ///<summary>Writes a CloudCoin stack file for the CloudCoin retrieved the last call of either getStackFromCloudBank or getReceiptFromCloudBank</summary>
+        ///<summary>Writes a CloudCoin stack file for the CloudCoin retrieved the last call of either getStackFromCloudBank or a skywallet function</summary>
         ///<param name="path">The full file path where the new file will be written</param> 
         public void saveStackToFile(string path)
         {
             File.WriteAllText(path + getStackName(), rawStackFromWithdrawal);
-            //WriteFile(path + stackName, rawStackFromWithdrawal);
         }
 
         ///<summary>Generates a filename for the CloudCoin stack file to be written by saveStackToFile</summary>
