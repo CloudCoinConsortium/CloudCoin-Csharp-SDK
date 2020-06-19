@@ -26,5 +26,8 @@ namespace CloudBankTester
         [JsonProperty("receipt")]
         public ReceiptDetail[] receipt_detail { get; set; }
 
+        [JsonProperty("reciept")]
+        private ReceiptDetail[] reciept { set { receipt_detail = value; } }
+
     }
 }
