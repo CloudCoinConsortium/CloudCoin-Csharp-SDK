@@ -25,7 +25,7 @@ namespace CloudBankTester
         public bool haveReceipt { get; private set; }
         public int onesInBank { get; private set; }
         public int fivesInBank { get; private set; }
-        public int twentyFivesInBank { get; private set; }
+        public int twentyfivesInBank { get; private set; }
         public int hundredsInBank { get; private set; }
         public int twohundredfiftiesInBank { get; private set; }
 
@@ -41,7 +41,7 @@ namespace CloudBankTester
             totalCoinsWithdrawn = 0;
             onesInBank = 0;
             fivesInBank = 0;
-            twentyFivesInBank = 0;
+            twentyfivesInBank = 0;
             hundredsInBank = 0;
             twohundredfiftiesInBank = 0;
         }
@@ -56,7 +56,7 @@ namespace CloudBankTester
             totalCoinsWithdrawn = 0;
             onesInBank = 0;
             fivesInBank = 0;
-            twentyFivesInBank = 0;
+            twentyfivesInBank = 0;
             hundredsInBank = 0;
             twohundredfiftiesInBank = 0;
             haveReceipt = false;
@@ -86,7 +86,7 @@ namespace CloudBankTester
                 {
                     onesInBank = bankTotals.ones;
                     fivesInBank = bankTotals.fives;
-                    twentyFivesInBank = bankTotals.twentyfives;
+                    twentyfivesInBank = bankTotals.twentyfives;
                     hundredsInBank = bankTotals.hundreds;
                     twohundredfiftiesInBank = bankTotals.twohundredfifties;
                 }
