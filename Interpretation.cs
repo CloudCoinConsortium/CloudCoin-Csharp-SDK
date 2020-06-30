@@ -1,6 +1,6 @@
 ﻿
 
-namespace CloudBankTester
+namespace CloudCoinCsharpSDK
 {
     public class Interpretation
     {

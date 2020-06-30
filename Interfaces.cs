@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 
 
-namespace CloudBankTester
+namespace CloudCoinCsharpSDK
 {
     interface ICloudBankAccessable
     {

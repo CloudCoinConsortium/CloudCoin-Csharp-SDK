@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CloudBankTester
+namespace CloudCoinCsharpSDK
 {
     public class BaseResponse : IBankResponse
     {
